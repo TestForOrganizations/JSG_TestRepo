@@ -21,7 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.inputs.confirm == 'true'
     
-    # 직접 라벨 동기화 수행
     steps:
       - name: Sync labels using organization template
         uses: crazy-max/ghaction-github-labeler@v4
@@ -29,7 +28,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           yaml-file: https://raw.githubusercontent.com/TestForOrganizations/.github/main/labels/labels.yml
           skip-delete: false
-          delete-other-labels: true
+          # delete-other-labels: true  ← 이 줄 삭제!
           
       - name: Complete message
         run: |
