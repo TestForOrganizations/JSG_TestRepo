@@ -1,7 +1,7 @@
 name: Sync Labels From Shared Template
 
 on:
-  workflow_dispatch:  # 수동 실행 (원하면 push/schedule도 추가 가능)
+  workflow_dispatch:  # 수동 실행
 
 jobs:
   call-label-sync:
