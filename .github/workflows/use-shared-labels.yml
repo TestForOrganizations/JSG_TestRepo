@@ -5,6 +5,6 @@ on:
 
 jobs:
   call-label-sync:
-    uses: MakeChatStudy/.github/.github/workflows/sync-labels-template.yml@main
+    uses: TestForOrganizations/.github/.github/workflows/sync-labels-template.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
