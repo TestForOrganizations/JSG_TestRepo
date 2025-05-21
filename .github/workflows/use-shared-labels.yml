@@ -1,8 +1,8 @@
 name: Sync Labels From Shared Template
 
 on:
-  workflow_dispatch:  # 수동 실행
+  workflow_dispatch:
 
 jobs:
   call-label-sync:
-    uses: TestForOrganizations/.github/.github/workflows/sync-labels-template.yml@main
+    uses: TestForOrganizations/.github/workflows/sync-labels-template.yml@main
