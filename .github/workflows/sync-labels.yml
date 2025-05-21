@@ -1,0 +1,33 @@
+name: Sync Labels from Organization
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: '라벨 동기화를 진행하시겠습니까? (기존 라벨이 삭제됩니다)'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  sync-labels:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.confirm == 'true'
+    
+    steps:
+      - name: Call organization label sync
+        uses: TestForOrganizations/.github/.github/workflows/sync-labels-template.yml@main
+        secrets:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Complete message
+        run: |
+          echo "🎉 라벨 동기화가 완료되었습니다!"
+          echo "조직 표준 라벨이 이 레포지토리에 적용되었습니다."
