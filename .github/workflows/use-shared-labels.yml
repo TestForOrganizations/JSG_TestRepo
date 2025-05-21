@@ -1,0 +1,10 @@
+name: Sync Labels From Shared Template
+
+on:
+  workflow_dispatch:  # 수동 실행
+
+jobs:
+  call-label-sync:
+    uses: MakeChatStudy/.github/.github/workflows/sync-labels-template.yml@main
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
